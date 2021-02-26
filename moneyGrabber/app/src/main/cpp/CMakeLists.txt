@@ -46,6 +46,18 @@ set_target_properties(
 target_include_directories(
         native-lib PUBLIC
         D:/DevCpp/RPO/libs/spdlog/spdlog/include
+        D:/DevCpp/RPO/libs/mbedlts/mbedtls/include
+)
+
+add_library(mbedcrypto SHARED IMPORTED)
+set_target_properties(
+        mbedcrypto PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/../cmakeLibs/x86/libmbedcrypto.so
+)
+
+configure_file(
+        D:/DevCpp/RPO/libs/mbedlts/build/x86/library/libmbedcrypto.so
+        ${CMAKE_CURRENT_SOURCE_DIR}/../cmakeLibs/x86/libmbedcrypto.so
+        COPYONLY
 )
 
 # Specifies libraries CMake should link to your target library. You
@@ -55,6 +67,7 @@ target_include_directories(
 target_link_libraries( # Specifies the target library.
                        native-lib
                        spdlog
+                       mbedcrypto
 
                        # Links the target library to the log library
                        # included in the NDK.

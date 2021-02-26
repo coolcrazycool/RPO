@@ -1,0 +1,232 @@
+The target system is: Android - 1 - i686
+The host system is: Linux - 4.4.0-18362-Microsoft - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang 
+Build flags: -g;-DANDROID;-fdata-sections;-ffunction-sections;-funwind-tables;-fstack-protector-strong;-no-canonical-prefixes;-mstackrealign;-D_FORTIFY_SOURCE=2;-Wformat;-Werror=format-security;
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is Clang, found in "/home/libs/mbedtls/mbedtls/x86/CMakeFiles/3.10.2/CompilerIdC/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3c9c9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3c9c9.dir/build.make CMakeFiles/cmTC_3c9c9.dir/build
+make[1]: Entering directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3c9c9.dir/testCCompiler.c.o
+/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE   -o CMakeFiles/cmTC_3c9c9.dir/testCCompiler.c.o   -c /home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_3c9c9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3c9c9.dir/link.txt --verbose=1
+/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections   CMakeFiles/cmTC_3c9c9.dir/testCCompiler.c.o  -o cmTC_3c9c9 -latomic -lm 
+make[1]: Leaving directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_acc8b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_acc8b.dir/build.make CMakeFiles/cmTC_acc8b.dir/build
+make[1]: Entering directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_acc8b.dir/CMakeCCompilerABI.c.o
+/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE   -o CMakeFiles/cmTC_acc8b.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_acc8b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_acc8b.dir/link.txt --verbose=1
+/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections  -v CMakeFiles/cmTC_acc8b.dir/CMakeCCompilerABI.c.o  -o cmTC_acc8b 
+Android (6875598, based on r399163b) clang version 11.0.5 (https://android.googlesource.com/toolchain/llvm-project 87f1315dfbea7c137aa2e6d362dbb457e388158d)
+Target: i686-none-linux-android16
+Thread model: posix
+InstalledDir: /home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin
+Found candidate GCC installation: /home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x
+Found candidate GCC installation: /home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x
+Selected GCC installation: /home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x
+Candidate multilib: .;@m32
+Selected multilib: .;@m32
+ "/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/ld" --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot -pie -z noexecstack --warn-shared-textrel -z now -z relro --hash-style=gnu --hash-style=both --enable-new-dtags --eh-frame-hdr -m elf_i386 -dynamic-linker /system/bin/linker -o cmTC_acc8b /home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/16/crtbegin_dynamic.o -L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/11.0.5/lib/linux/i386 -L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x -L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/16 -L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android -L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib -L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib --exclude-libs libgcc.a --exclude-libs libgcc_real.a --exclude-libs libatomic.a --build-id=sha1 --no-rosegment --fatal-warnings --no-undefined --gc-sections CMakeFiles/cmTC_acc8b.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/16/crtend_android.o
+make[1]: Leaving directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(CMAKE_LINKER-NOTFOUND|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_acc8b/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_acc8b.dir/build.make CMakeFiles/cmTC_acc8b.dir/build]
+  ignore line: [make[1]: Entering directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_acc8b.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE   -o CMakeFiles/cmTC_acc8b.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_acc8b]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_acc8b.dir/link.txt --verbose=1]
+  ignore line: [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections  -v CMakeFiles/cmTC_acc8b.dir/CMakeCCompilerABI.c.o  -o cmTC_acc8b ]
+  ignore line: [Android (6875598, based on r399163b) clang version 11.0.5 (https://android.googlesource.com/toolchain/llvm-project 87f1315dfbea7c137aa2e6d362dbb457e388158d)]
+  ignore line: [Target: i686-none-linux-android16]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin]
+  ignore line: [Found candidate GCC installation: /home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x]
+  ignore line: [Found candidate GCC installation: /home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/x86_64-linux-android/4.9.x]
+  ignore line: [Selected GCC installation: /home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x]
+  ignore line: [Candidate multilib: .]
+  ignore line: [@m32]
+  ignore line: [Selected multilib: .]
+  ignore line: [@m32]
+  link line: [ "/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/ld" --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot -pie -z noexecstack --warn-shared-textrel -z now -z relro --hash-style=gnu --hash-style=both --enable-new-dtags --eh-frame-hdr -m elf_i386 -dynamic-linker /system/bin/linker -o cmTC_acc8b /home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/16/crtbegin_dynamic.o -L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/11.0.5/lib/linux/i386 -L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x -L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/16 -L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android -L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib -L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib --exclude-libs libgcc.a --exclude-libs libgcc_real.a --exclude-libs libatomic.a --build-id=sha1 --no-rosegment --fatal-warnings --no-undefined --gc-sections CMakeFiles/cmTC_acc8b.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/16/crtend_android.o]
+    arg [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/ld] ==> ignore
+    arg [--sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znoexecstack] ==> ignore
+    arg [--warn-shared-textrel] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--hash-style=both] ==> ignore
+    arg [--enable-new-dtags] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_i386] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/system/bin/linker] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_acc8b] ==> ignore
+    arg [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/16/crtbegin_dynamic.o] ==> ignore
+    arg [-L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/11.0.5/lib/linux/i386] ==> dir [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/11.0.5/lib/linux/i386]
+    arg [-L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x] ==> dir [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x]
+    arg [-L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/16] ==> dir [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/16]
+    arg [-L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android] ==> dir [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android]
+    arg [-L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib] ==> dir [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib]
+    arg [-L/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib] ==> dir [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+    arg [--exclude-libs] ==> ignore
+    arg [libgcc.a] ==> ignore
+    arg [--exclude-libs] ==> ignore
+    arg [libgcc_real.a] ==> ignore
+    arg [--exclude-libs] ==> ignore
+    arg [libatomic.a] ==> ignore
+    arg [--build-id=sha1] ==> ignore
+    arg [--no-rosegment] ==> ignore
+    arg [--fatal-warnings] ==> ignore
+    arg [--no-undefined] ==> ignore
+    arg [--gc-sections] ==> ignore
+    arg [CMakeFiles/cmTC_acc8b.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [-ldl] ==> lib [dl]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-ldl] ==> lib [dl]
+    arg [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/16/crtend_android.o] ==> ignore
+  collapse library dir [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/11.0.5/lib/linux/i386] ==> [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/11.0.5/lib/linux/i386]
+  collapse library dir [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x] ==> [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x]
+  collapse library dir [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/16] ==> [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/16]
+  collapse library dir [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android] ==> [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android]
+  collapse library dir [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib] ==> [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/i686-linux-android/lib]
+  collapse library dir [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib] ==> [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+  implicit libs: [gcc;dl;c;gcc;dl]
+  implicit dirs: [/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/11.0.5/lib/linux/i386;/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x;/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/16;/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android;/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/i686-linux-android/lib;/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5a9cc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5a9cc.dir/build.make CMakeFiles/cmTC_5a9cc.dir/build
+make[1]: Entering directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5a9cc.dir/feature_tests.c.o
+/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE   -std=c11 -o CMakeFiles/cmTC_5a9cc.dir/feature_tests.c.o   -c /home/libs/mbedtls/mbedtls/x86/CMakeFiles/feature_tests.c
+Linking C executable cmTC_5a9cc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5a9cc.dir/link.txt --verbose=1
+/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections   CMakeFiles/cmTC_5a9cc.dir/feature_tests.c.o  -o cmTC_5a9cc -latomic -lm 
+make[1]: Leaving directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fdad0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fdad0.dir/build.make CMakeFiles/cmTC_fdad0.dir/build
+make[1]: Entering directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fdad0.dir/feature_tests.c.o
+/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE   -std=c99 -o CMakeFiles/cmTC_fdad0.dir/feature_tests.c.o   -c /home/libs/mbedtls/mbedtls/x86/CMakeFiles/feature_tests.c
+Linking C executable cmTC_fdad0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fdad0.dir/link.txt --verbose=1
+/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections   CMakeFiles/cmTC_fdad0.dir/feature_tests.c.o  -o cmTC_fdad0 -latomic -lm 
+make[1]: Leaving directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d8e78/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d8e78.dir/build.make CMakeFiles/cmTC_d8e78.dir/build
+make[1]: Entering directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d8e78.dir/feature_tests.c.o
+/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE   -std=c90 -o CMakeFiles/cmTC_d8e78.dir/feature_tests.c.o   -c /home/libs/mbedtls/mbedtls/x86/CMakeFiles/feature_tests.c
+Linking C executable cmTC_d8e78
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8e78.dir/link.txt --verbose=1
+/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security    -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections   CMakeFiles/cmTC_d8e78.dir/feature_tests.c.o  -o cmTC_d8e78 -latomic -lm 
+make[1]: Leaving directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_00106/fast"
+/usr/bin/make -f CMakeFiles/cmTC_00106.dir/build.make CMakeFiles/cmTC_00106.dir/build
+make[1]: Entering directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_00106.dir/CheckIncludeFile.c.o
+/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wimplicit-fallthrough -Wshadow -Wvla -Werror  -fPIE   -o CMakeFiles/cmTC_00106.dir/CheckIncludeFile.c.o   -c /home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_00106
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_00106.dir/link.txt --verbose=1
+/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wimplicit-fallthrough -Wshadow -Wvla -Werror   -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections   CMakeFiles/cmTC_00106.dir/CheckIncludeFile.c.o  -o cmTC_00106 -latomic -lm 
+make[1]: Leaving directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp'
+
+
+Determining if the pthread_create exist passed with the following output:
+Change Dir: /home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9b349/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9b349.dir/build.make CMakeFiles/cmTC_9b349.dir/build
+make[1]: Entering directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9b349.dir/CheckSymbolExists.c.o
+/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wimplicit-fallthrough -Wshadow -Wvla -Werror  -fPIE   -o CMakeFiles/cmTC_9b349.dir/CheckSymbolExists.c.o   -c /home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_9b349
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9b349.dir/link.txt --verbose=1
+/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=i686-none-linux-android16 --gcc-toolchain=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/android-ndk-r22/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wextra -Wwrite-strings -Wpointer-arith -Wimplicit-fallthrough -Wshadow -Wvla -Werror   -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections   CMakeFiles/cmTC_9b349.dir/CheckSymbolExists.c.o  -o cmTC_9b349 -latomic -lm 
+make[1]: Leaving directory '/home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp'
+
+File /home/libs/mbedtls/mbedtls/x86/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
