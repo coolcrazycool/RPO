@@ -3,8 +3,20 @@ package com.millioner.moneygrabber;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.apache.commons.io.IOUtils;
+
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,31 +32,43 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        byte[] rnd = randomBytes(16);
-        byte[] data = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
-        byte[] encrypted = encrypt(rnd, data);
-        byte[] decrypted = decrypt(rnd, encrypted);
-        String originalData  = new String(data, StandardCharsets.UTF_8);
-        String encryptedData = new String(encrypted, StandardCharsets.UTF_8);
-        String decryptedData = new String(decrypted, StandardCharsets.UTF_8);
+        Button btn = findViewById(R.id.btnClickMe);
+        btn.setOnClickListener(this::onButtonClick);
 
-        System.out.println(originalData);
-        System.out.println(encryptedData);
-        System.out.println(decryptedData);
+        int res = initRng();
+        Log.i("moneyGrabber", "Init Rng = " + res);
+        byte[] v = randomBytes(10);
+    }
 
-        String output = new String(
-                "Original: "  + originalData  + "\n" +
-                        "Encrypted: " + encryptedData + "\n" +
-                        "Decrypted: " + decryptedData + "\0"
-        );
+    protected void onButtonClick(View v) {
+        TestHttpClient();
+    }
 
-        System.out.println("Original: "  + originalData);
-        System.out.println("Encrypted: " + encryptedData);
-        System.out.println("Decrypted: " + decryptedData);
+    protected void TestHttpClient(){
+        new Thread(() -> {
+            try {
+                HttpURLConnection uc = (HttpURLConnection) (new URL("http://10.0.2.2:8081/api/v1/title").openConnection());
+                InputStream inputStream = uc.getInputStream();
+                String html = IOUtils.toString(inputStream);
+                String title = getPageTitle(html);
+                runOnUiThread(() -> {
+                    Toast.makeText(this, title, Toast.LENGTH_SHORT).show();
+                });
+            } catch (Exception ex) {
+                Log.e("fapptag", "Http client fails", ex);
+            }
+        }).start();
+    }
 
-        // Example of a call to a native method
-        TextView tv = findViewById(R.id.sample_text);
-        tv.setText(stringFromJNI());
+    protected String getPageTitle(String html){
+        Pattern pattern = Pattern.compile("<title>(.+?)</title>", Pattern.DOTALL);
+        Matcher matcher = pattern.matcher(html);
+        String p;
+        if (matcher.find())
+            p = matcher.group(1);
+        else
+            p = "Not found";
+        return p;
     }
 
     /**
