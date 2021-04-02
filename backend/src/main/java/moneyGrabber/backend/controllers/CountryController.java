@@ -1,5 +1,6 @@
 package moneyGrabber.backend.controllers;
 
+import moneyGrabber.backend.models.Artist;
 import moneyGrabber.backend.models.Country;
 import moneyGrabber.backend.repositories.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -23,6 +21,12 @@ public class CountryController {
     @GetMapping("/countries")
     public List<Country> getAllCountries() {
         return countryRepository.findAll();
+    }
+
+    @GetMapping("/countries/{id}/artists")
+    public ResponseEntity<List<Artist>> getCountryArtists(@PathVariable(value = "id") Long countryId) {
+        Optional<Country> cc = countryRepository.findById(countryId);
+        return cc.map(country -> ResponseEntity.ok(country.artists)).orElseGet(() -> ResponseEntity.ok(new ArrayList<>()));
     }
 
     @PostMapping("/countries")
