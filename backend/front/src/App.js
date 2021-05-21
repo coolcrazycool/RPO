@@ -34,10 +34,10 @@ function App(props) {
               <div className="alert alert-danger m-1">{props.error_message}</div>
               }
               <Switch>
-                  <AuthRoute path="/home/" component={Home}/>
-                  <AuthRoute path="/countries" component={CountryListComponent}/>
-                  <AuthRoute path="/countries/:id" component={CountryComponent}/>
-                  <Route path="/login" component={Login}/>
+                  <AuthRoute path="/home/" exact component={Home}/>
+                  <AuthRoute path="/countries" exact component={CountryListComponent}/>
+                  <AuthRoute path="/countries/:id" exact component={CountryComponent}/>
+                  <Route path="/login" exact component={Login}/>
               </Switch>
               </div>
           </div>
