@@ -115,7 +115,9 @@ class PaginationComponent extends Component {
         if (!totalRecords || totalPages === 1) return null;
 
         const {currentPage} = this.state;
-        const pages = this.fetchPageNumbers(totalPages);
+        let pages = this.fetchPageNumbers(totalPages);
+        if (!pages.length) pages = [1, 2, 3];
+        console.log(pages, 'PAGES')
 
         return (
             <Fragment>

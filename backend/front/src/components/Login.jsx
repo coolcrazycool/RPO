@@ -23,6 +23,7 @@ const Login = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        e.stopPropagation()
 
         setState(prevState => ({...prevState, submitted: true, loggingIn: true}));
         const {username, password} = state;
@@ -34,7 +35,8 @@ const Login = (props) => {
             console.log(data, 'data');
             // Utils.saveUser(data.data);
             props.dispatch(userActions.login(data.data));
-            history.push('/home');
+            history.push('/');
+            window.location.reload()
         } catch (e) {
             // if (e.response?.status === 401 && e.response) {
             //     setState(prevState => ({...prevState, errorMessage: "Ошибка авторизации"}));

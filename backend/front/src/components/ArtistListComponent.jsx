@@ -30,6 +30,7 @@ class ArtistListComponent extends React.Component {
         this.setChecked = this.setChecked.bind(this)
         this.deleteArtistsClicked = this.deleteArtistsClicked.bind(this)
         this.onPageChanged = this.onPageChanged.bind(this)
+        console.log(this.state.artists)
     }
 
     onPageChanged(cp) {

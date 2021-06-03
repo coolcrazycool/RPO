@@ -41,16 +41,16 @@ function App(props) {
                             <div className='alert alert-danger m-1'>{props.errorMessage}</div>
                             }
                             <Switch>
-                                <AuthRoute path="/home" component={Home}/>
+                                <AuthRoute path="/home" exact component={Home}/>
                                 <Route path="/login" history={history} exact component={Login}/>
                                 <AuthRoute path="/countries" exact component={CountryListComponent}/>
                                 <AuthRoute path="/countries/:id" component={CountryComponent}/>
                                 <AuthRoute path="/artists" exact component={ArtistListComponent}/>
-                                {/*<AuthRoute path="/artists/:id" component={ArtistComponent}/>*/}
+                                <AuthRoute path="/artists/:id" component={ArtistComponent}/>
                                 <AuthRoute path="/museums" exact component={MuseumListComponent}/>
-                                {/*<AuthRoute path="/museums/:id" component={MuseumComponent}/>*/}
+                                <AuthRoute path="/museums/:id" component={MuseumComponent}/>
                                 <AuthRoute path="/paintings" exact component={PaintingListComponent}/>
-                                {/*<AuthRoute path="/paintings/:id" component={PaintingComponent}/>*/}
+                                <AuthRoute path="/paintings/:id" component={PaintingComponent}/>
                                 <AuthRoute path="/users" exact component={UsersListComponent}/>
                                 <AuthRoute path="/users/:id" component={UserComponent}/>
                             </Switch>
