@@ -6,12 +6,15 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronLeft, faSave} from "@fortawesome/free-solid-svg-icons";
 import {alertActions} from "../utils/Rdx";
 import Alert from "react-bootstrap/Alert";
-class CountryComponent extends Component {
+import {logger} from "redux-logger/src";
+class PaintingComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
             id: this.props.match.params.id,
             name: '',
+            author: '',
+            museum:'',
             hidden: false,
             alertShow: false,
             alertMessage: '',
@@ -29,44 +32,54 @@ class CountryComponent extends Component {
         console.log(event, 'event');
         event.preventDefault();
         event.stopPropagation();
-        let err = null;
-        console.log(this.state, 'STATE');
+        let err = '';
         if (!this.state.name) {
-            err = "Название страны должно быть указано"
+            err += "Название картины должно быть указано"
+        }
+        if (!this.state.author) {
+            err += " Автор картины должна быть указана"
+        }
+        if (!this.state.museum) {
+            err += " Музей должен быть указан"
         }
         if (err) {
             this.props.dispatch(alertActions.error(err))
-            this.setState({alertShow: true, alertMessage: 'Название страны должно быть указано'});
+            this.setState({alertShow: true, alertMessage: err});
             return ;
         }
-        let country = {id: this.state.id, name: this.state.name};
-        if (parseInt(country.id) === -1) {
-            BackendService.createCountry(country)
+        let painting = {id: this.state.id, name: this.state.name, author: this.state.author, museum: this.state.museum};
+        if (parseInt(painting.id) === -1) {
+            BackendService.createPainting(painting)
                 .then((res) => {
                     if (res.data.error) {
+                        console.log(res.data.error)
                         throw new Error(res.data.error);
                     }
-                    this.props.history.push('/countries')
+                    this.props.history.push('/paintings')
                 })
                 .catch((e) => {
                     this.props.dispatch(alertActions.error(e));
-                    this.setState({alertShow: true, alertMessage: 'Такая страна уже есть'});
-
+                    this.setState({alertShow: true, alertMessage: 'Такая картина уже есть уже есть'});
                 })
         } else {
-            BackendService.updateCountry(country)
-                .then(() => this.props.history.push('/countries'))
+            BackendService.updatePainting(painting)
+                .then(() => this.props.history.push('/paintings'))
                 .catch(() => {
                 })
         }
     }
 
     componentDidMount() {
-        if(parseInt(this.state.id) !== -1) {
-            BackendService.retrieveCountry(this.state.id)
-                .then((resp) => {
+        if (parseInt(this.state.id) !== -1) {
+            BackendService.retrievePainting(this.state.id)
+                .then(async (resp) => {
+                    console.log(resp.data, 'data')
+                    const info = await BackendService.retrieveMuseumsAndArtist(resp.data.artistid, resp.data.museumid);
+                    console.log(info, 'info');
                     this.setState({
                         name: resp.data.name,
+                        author: info.artist,
+                        museum: info.museum,
                     });
                 })
                 .catch(() => this.setState({hidden: true}));
@@ -92,10 +105,32 @@ class CountryComponent extends Component {
                         <Form.Label>Название</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Введите название страны"
+                            placeholder="Введите название картины"
                             onChange={this.handleChange}
                             value={this.state.name}
                             name="name"
+                            autoComplete="off"
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Автор</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="Введите автор картины"
+                            onChange={this.handleChange}
+                            value={this.state.author}
+                            name="author"
+                            autoComplete="off"
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Музей</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="Введите музей картины"
+                            onChange={this.handleChange}
+                            value={this.state.museum}
+                            name="museum"
                             autoComplete="off"
                         />
                     </Form.Group>
@@ -111,4 +146,4 @@ class CountryComponent extends Component {
 
 }
 
-export default connect()(CountryComponent);
+export default connect()(PaintingComponent);

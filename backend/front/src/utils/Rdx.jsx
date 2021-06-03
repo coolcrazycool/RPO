@@ -1,4 +1,4 @@
-import Utils from "./Utils";
+import Utils from './Utils'
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import { createLogger } from 'redux-logger'
 
@@ -38,7 +38,7 @@ function login(user) {
 function logout() {
     Utils.removeUser();
     return {type: userConstants.LOGOUT}
-}
+};
 
 let user = Utils.getUserName();
 const initialState = user ? {user} : {}
