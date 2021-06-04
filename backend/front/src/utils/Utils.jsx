@@ -12,6 +12,11 @@ class Utils {
         return user && "Bearer " + user.token;
     }
 
+    getUser() {
+        let user = JSON.parse(localStorage.getItem('user'));
+        return user;
+    }
+
     getUserName() {
         let user = JSON.parse(localStorage.getItem('user'));
         return user && user.login;

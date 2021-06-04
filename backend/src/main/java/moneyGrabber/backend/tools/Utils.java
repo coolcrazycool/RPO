@@ -10,8 +10,8 @@ public class Utils {
         try {
             digest = MessageDigest.getInstance("SHA-256");
         }
-        catch (Exception ex) {
-            return "";
+        catch(Exception ex) {
+            return new String();
         }
         return new String(Hex.encode(digest.digest(w)));
     }

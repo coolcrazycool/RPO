@@ -21,14 +21,12 @@ import org.springframework.security.web.util.matcher.RequestMatcher;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
     private static final RequestMatcher PROTECTED_URLS = new OrRequestMatcher(
             new AntPathRequestMatcher("/api/**")
     );
-
     AuthenticationProvider provider;
 
-    public SecurityConfiguration(final AuthenticationProvider authenticationProvider) {
+    public SecurityConfiguration(final AuthenticationProvider authenticationProvider){
         super();
         this.provider = authenticationProvider;
     }
@@ -39,12 +37,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(final WebSecurity webSecurity) {
+    public void configure(final WebSecurity webSecurity){
         webSecurity.ignoring().antMatchers("/auth/**");
     }
 
     @Override
-    public void configure(HttpSecurity http) throws Exception {
+    public void configure(HttpSecurity http) throws Exception{
         http.sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.NEVER)
                 .and()
@@ -62,14 +60,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logout().disable()
                 .cors();
     }
-
     @Bean
     AuthenticationFilter authenticationFilter() throws Exception {
         final AuthenticationFilter filter = new AuthenticationFilter(PROTECTED_URLS);
         filter.setAuthenticationManager(authenticationManager());
         return filter;
     }
-
     @Bean
-    AuthenticationEntryPoint forbiddenEntryPoint() { return new HttpStatusEntryPoint(HttpStatus.FORBIDDEN); }
+    AuthenticationEntryPoint forbiddenEntryPoint(){
+        return new HttpStatusEntryPoint(HttpStatus.FORBIDDEN);
+    }
 }

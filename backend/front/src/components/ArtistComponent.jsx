@@ -58,7 +58,7 @@ class ArtistComponent extends Component {
                 })
                 .catch((e) => {
                     this.props.dispatch(alertActions.error(e));
-                    this.setState({alertShow: true, alertMessage: e});
+                    this.setState({alertShow: true, alertMessage: 'Такой художник уже есть'});
                 })
         } else {
             BackendService.updateArtist(artist)

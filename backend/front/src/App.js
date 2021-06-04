@@ -19,6 +19,7 @@ import PaintingListComponent from "./components/PaintingListComponent";
 import PaintingComponent from "./components/PaintingComponent";
 import UsersListComponent from "./components/UsersListComponent";
 import UserComponent from "./components/UserComponent";
+import MyAccountComponent from "./components/MyAccountComponent";
 
 const AuthRoute = (props) => {
     let user = Utils.getUserName();
@@ -53,6 +54,7 @@ function App(props) {
                                 <AuthRoute path="/paintings/:id" component={PaintingComponent}/>
                                 <AuthRoute path="/users" exact component={UsersListComponent}/>
                                 <AuthRoute path="/users/:id" component={UserComponent}/>
+                                <AuthRoute path="/changePasswd" component={MyAccountComponent}/>
                             </Switch>
                         </div>
                     </div>

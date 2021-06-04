@@ -4,7 +4,6 @@ import {faEdit, faPlus, faTrash} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Alert from "./Alert";
 import PaginationComponent from "./PaginationComponent";
-import {logger} from "redux-logger/src";
 
 class MuseumListComponent extends React.Component {
     constructor(props) {

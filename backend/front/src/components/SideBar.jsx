@@ -32,6 +32,10 @@ const SideBar = (props) => {
                     <Nav.Link as={Link} to="/users">
                         <FontAwesomeIcon icon={faUser}/>{" "}Пользователи</Nav.Link>
                 </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link as={Link} to="/changePasswd">
+                        <FontAwesomeIcon icon={faUser}/>{" "}Пользователь</Nav.Link>
+                </Nav.Item>
             </Nav>
             }
 

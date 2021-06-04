@@ -1,26 +1,24 @@
 package moneyGrabber.backend.auth;
 
-import moneyGrabber.backend.repositories.UserRepository;
-import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.www.NonceExpiredException;
 import org.springframework.stereotype.Component;
+import moneyGrabber.backend.models.User;
+import moneyGrabber.backend.repositories.UserRepository;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
-
 @Component
 public class AuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
 
-    @Value("${private.session-timeout}")
+    @Value("10")
     private int sessionTimeout;
 
     @Autowired
@@ -31,38 +29,31 @@ public class AuthenticationProvider extends AbstractUserDetailsAuthenticationPro
                                                   UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken) throws AuthenticationException {
 
     }
-
     @Override
-    protected UserDetails retrieveUser(String userName,
-                                       UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken) throws AuthenticationException {
+    protected UserDetails retrieveUser(String userName, UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken) throws  AuthenticationException{
         Object token = usernamePasswordAuthenticationToken.getCredentials();
-        Optional<moneyGrabber.backend.models.User> uu = userRepository.findByToken(String.valueOf(token));
-        if (uu.isEmpty())
+        Optional<User> currentUser = userRepository.findByToken(String.valueOf(token));
+        if(!currentUser.isPresent())
             throw new UsernameNotFoundException("user is not found");
-        moneyGrabber.backend.models.User u = uu.get();
+        User user = currentUser.get();
 
         boolean timeout = true;
         LocalDateTime dt = LocalDateTime.now();
-        if (u.activity != null) {
-            LocalDateTime nt = u.activity.plusMinutes(sessionTimeout);
-            if (dt.isBefore(nt))
+        if(user.activity!=null){
+            LocalDateTime nt = user.activity.plusMinutes(sessionTimeout);
+            if(dt.isBefore(nt))
                 timeout = false;
         }
-        if (timeout) {
-            u.token = null;
-            userRepository.save(u);
+        if(timeout){
+            user.token = null;
+            userRepository.save(user);
             throw new NonceExpiredException("session is expired");
         }
         else {
-            u.activity = dt;
-            userRepository.save(u);
+            user.activity = dt;
+            userRepository.save(user);
         }
-
-        return new User(u.login, u.password,
-                true,
-                true,
-                true,
-                true,
-                AuthorityUtils.createAuthorityList("USER"));
+        UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.login, user.password, true, true, true, true, AuthorityUtils.createAuthorityList("USER"));
+        return userDetails;
     }
 }
