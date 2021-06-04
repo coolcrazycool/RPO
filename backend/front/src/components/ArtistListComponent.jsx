@@ -90,8 +90,8 @@ class ArtistListComponent extends React.Component {
         BackendService.retrieveAllArtists(cp, this.state.limit)
             .then(resp => {
                 this.setState({
-                        artists: resp.data.content, totalCount: resp.data.totalElements,
-                        page:cp, hidden: false });
+                    artists: resp.data.content, totalCount: resp.data.totalElements,
+                    page:cp, hidden: false });
             })
             .catch(() => {
                 this.setState({totalCount:0, hidden: true})

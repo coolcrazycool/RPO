@@ -42,10 +42,10 @@ class UserComponent extends Component {
         }
         let user = {id: this.state.id, np: this.state.password, email: this.state};
         console.log(user, 'user')
-            BackendService.updateUser(user)
-                .then(() => this.props.history.push('/users'))
-                .catch(() => {
-                })
+        BackendService.updateUser(user)
+            .then(() => this.props.history.push('/users'))
+            .catch(() => {
+            })
 
     }
 
@@ -67,33 +67,33 @@ class UserComponent extends Component {
         return (
             <>
                 {this.state.alertShow && <Alert variant={'danger'}>{this.state.alertMessage}</Alert>}
-            <div className="m-4">
-                <div className="row my-2 mr-0">
-                    <h3>Пользователи</h3>
-                    <button
-                        className="btn btn-outline-secondary ml-auto"
-                        onClick={() => this.props.history.goBack()}><FontAwesomeIcon icon={faChevronLeft}/>{' '}Назад
-                    </button>
+                <div className="m-4">
+                    <div className="row my-2 mr-0">
+                        <h3>Пользователи</h3>
+                        <button
+                            className="btn btn-outline-secondary ml-auto"
+                            onClick={() => this.props.history.goBack()}><FontAwesomeIcon icon={faChevronLeft}/>{' '}Назад
+                        </button>
+                    </div>
+                    <Form onSubmit={this.onSubmit}>
+                        <Form.Group>
+                            <Form.Label>Пароль</Form.Label>
+                            <Form.Control
+                                type="password"
+                                placeholder="Введите новой пароль"
+                                onChange={this.handleChange}
+                                value={this.state.password}
+                                name="password"
+                                autoComplete="off"
+                            />
+                        </Form.Group>
+                        <button
+                            className="btn btn-outline-secondary"
+                            type="submit"><FontAwesomeIcon icon={faSave}/>{" "}-Сохранить
+                        </button>
+                    </Form>
                 </div>
-                <Form onSubmit={this.onSubmit}>
-                    <Form.Group>
-                        <Form.Label>Пароль</Form.Label>
-                        <Form.Control
-                            type="password"
-                            placeholder="Введите новой пароль"
-                            onChange={this.handleChange}
-                            value={this.state.password}
-                            name="password"
-                            autoComplete="off"
-                        />
-                    </Form.Group>
-                    <button
-                        className="btn btn-outline-secondary"
-                        type="submit"><FontAwesomeIcon icon={faSave}/>{" "}-Сохранить
-                    </button>
-                </Form>
-            </div>
-                </>
+            </>
         )
     }
 

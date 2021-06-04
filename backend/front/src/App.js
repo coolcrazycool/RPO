@@ -1,71 +1,65 @@
-import React, {useState} from "react";
+import React, {useState} from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
-import history from "./utils/history";
+import { Router, Switch, Route, Redirect } from "react-router-dom";
+import { createBrowserHistory } from 'history';
 import NavigationBar from "./components/NavigationBar";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import Utils from './utils/Utils'
-import {Provider} from "react-redux";
-import {store} from "./utils/Rdx";
-import SideBar from "./components/SideBar";
+import Utils from "./utils/Utils"
+import {connect} from "react-redux";
 import CountryListComponent from "./components/CountryListComponent";
 import CountryComponent from "./components/CountryComponent";
+import SideBar from "./components/SideBar";
 import ArtistListComponent from "./components/ArtistListComponent";
-import ArtistComponent from "./components/ArtistComponent";
-import MuseumListComponent from "./components/MuseumListComponent";
-import MuseumComponent from "./components/MuseumComponent";
 import PaintingListComponent from "./components/PaintingListComponent";
-import PaintingComponent from "./components/PaintingComponent";
-import UsersListComponent from "./components/UsersListComponent";
-import UserComponent from "./components/UserComponent";
+import MuseumListComponent from "./components/MuseumListComponent";
+import UserListComponent from "./components/UserListComponent";
 import MyAccountComponent from "./components/MyAccountComponent";
+import MuseumComponent from "./components/MuseumComponent";
 
-const AuthRoute = (props) => {
-    let user = Utils.getUserName();
-    if (!user) return <Redirect to="/login"/>;
-    return <Route {...props} />
-}
+
+const AuthRoute = props => {
+    let user = Utils.getUser();
+    if (!user) return <Redirect to="/login" />;
+    return <Route {...props} />;
+};
+
+const history = createBrowserHistory();
 
 function App(props) {
-    const [isExpanded, setExpanded] = useState(false);
+    const [exp, setExpanded] = useState(false);
 
     return (
-        <Provider store={store}>
-            <div className="App">
-                <Router history={history}>
-                    <NavigationBar store={store} toggleSideBar={() => setExpanded(!isExpanded)}/>
-                    <div className="wrapper">
-                        <SideBar expanded ={isExpanded}/>
-                        <div className="container-fluid">
-                            {props.errorMessage &&
-                            <div className='alert alert-danger m-1'>{props.errorMessage}</div>
-                            }
-                            <Switch>
-                                <AuthRoute path="/home" exact component={Home}/>
-                                <Route path="/login" history={history} exact component={Login}/>
-                                <AuthRoute path="/countries" exact component={CountryListComponent}/>
-                                <AuthRoute path="/countries/:id" component={CountryComponent}/>
-                                <AuthRoute path="/artists" exact component={ArtistListComponent}/>
-                                <AuthRoute path="/artists/:id" component={ArtistComponent}/>
-                                <AuthRoute path="/museums" exact component={MuseumListComponent}/>
-                                <AuthRoute path="/museums/:id" component={MuseumComponent}/>
-                                <AuthRoute path="/paintings" exact component={PaintingListComponent}/>
-                                <AuthRoute path="/paintings/:id" component={PaintingComponent}/>
-                                <AuthRoute path="/users" exact component={UsersListComponent}/>
-                                <AuthRoute path="/users/:id" component={UserComponent}/>
-                                <AuthRoute path="/changePasswd" component={MyAccountComponent}/>
-                            </Switch>
-                        </div>
+        <div className = "App">
+            <Router history = { history }>
+                <NavigationBar toggleSideBar={()=>setExpanded(!exp)}/>
+                <div className="wrapper">
+                    <SideBar expanded={exp}/>
+                    <div className="container-fluid">
+                        {props.error_message &&
+                        <div className="alert alert-danger m-1">{props.error_message}</div>}
+                        <Switch>
+                            <AuthRoute path="/home" component={Home} />
+                            <AuthRoute path="/countries" exact component={CountryListComponent}/>
+                            <AuthRoute path="/countries/:id" component={CountryComponent}/>
+                            <AuthRoute path="/artists" exact component={ArtistListComponent}/>
+                            <AuthRoute path="/paintings" exact component={PaintingListComponent}/>
+                            <AuthRoute path="/museums" exact component={MuseumListComponent}/>
+                            <AuthRoute path="/museums/:id" component={MuseumComponent}/>
+                            <AuthRoute path="/users" exact component={UserListComponent}/>
+                            <AuthRoute path="/myaccount" exact component={MyAccountComponent}/>
+                            <Route path="/login" component={Login} />
+                        </Switch>
                     </div>
-                </Router>
-            </div>
-        </Provider>
+                </div>
+            </Router>
+        </div>
     );
 }
 
 function mapStateToProps(state) {
-    return { errorMessage: state.alert }
-};
+    const {msg} = state.alert;
+    return {error_message: msg};
+}
 
-export default App;
+export default connect(mapStateToProps)(App);

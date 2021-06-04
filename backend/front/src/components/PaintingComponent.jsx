@@ -92,55 +92,55 @@ class PaintingComponent extends Component {
         return (
             <>
                 {this.state.alertShow && <Alert variant={'danger'}>{this.state.alertMessage}</Alert>}
-            <div className="m-4">
-                <div className="row my-2 mr-0">
-                    <h3>Страна</h3>
-                    <button
-                        className="btn btn-outline-secondary ml-auto"
-                        onClick={() => this.props.history.goBack()}><FontAwesomeIcon icon={faChevronLeft}/>{' '}Назад
-                    </button>
+                <div className="m-4">
+                    <div className="row my-2 mr-0">
+                        <h3>Страна</h3>
+                        <button
+                            className="btn btn-outline-secondary ml-auto"
+                            onClick={() => this.props.history.goBack()}><FontAwesomeIcon icon={faChevronLeft}/>{' '}Назад
+                        </button>
+                    </div>
+                    <Form onSubmit={this.onSubmit}>
+                        <Form.Group>
+                            <Form.Label>Название</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Введите название картины"
+                                onChange={this.handleChange}
+                                value={this.state.name}
+                                name="name"
+                                autoComplete="off"
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Автор</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Введите автор картины"
+                                onChange={this.handleChange}
+                                value={this.state.author}
+                                name="author"
+                                autoComplete="off"
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Музей</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Введите музей картины"
+                                onChange={this.handleChange}
+                                value={this.state.museum}
+                                name="museum"
+                                autoComplete="off"
+                            />
+                        </Form.Group>
+                        <button
+                            className="btn btn-outline-secondary"
+                            type="submit"><FontAwesomeIcon icon={faSave}/>{" "}-Сохранить
+                        </button>
+                    </Form>
                 </div>
-                <Form onSubmit={this.onSubmit}>
-                    <Form.Group>
-                        <Form.Label>Название</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Введите название картины"
-                            onChange={this.handleChange}
-                            value={this.state.name}
-                            name="name"
-                            autoComplete="off"
-                        />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Автор</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Введите автор картины"
-                            onChange={this.handleChange}
-                            value={this.state.author}
-                            name="author"
-                            autoComplete="off"
-                        />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Музей</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Введите музей картины"
-                            onChange={this.handleChange}
-                            value={this.state.museum}
-                            name="museum"
-                            autoComplete="off"
-                        />
-                    </Form.Group>
-                    <button
-                        className="btn btn-outline-secondary"
-                        type="submit"><FontAwesomeIcon icon={faSave}/>{" "}-Сохранить
-                    </button>
-                </Form>
-            </div>
-                </>
+            </>
         )
     }
 

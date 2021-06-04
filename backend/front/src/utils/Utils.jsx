@@ -1,32 +1,26 @@
 class Utils {
-    saveUser(user) {
+
+    saveUser(user){
         localStorage.setItem('user', JSON.stringify(user))
     }
 
-    removeUser() {
+    removeUser(){
         localStorage.removeItem('user')
     }
 
-    getToken() {
+    getToken(){
         let user = JSON.parse(localStorage.getItem('user'))
-        return user && "Bearer " + user.token;
+        return user && "Bearer" + user.token;
     }
 
-    getUser() {
-        let user = JSON.parse(localStorage.getItem('user'));
-        return user;
-    }
-
-    getUserName() {
-        let user = JSON.parse(localStorage.getItem('user'));
+    getUserName(){
+        let user = JSON.parse(localStorage.getItem('user'))
         return user && user.login;
     }
 
-    getEmail() {
-        let user = JSON.parse(localStorage.getItem('user'));
-        return user.email;
+    getUser(){
+        return JSON.parse(localStorage.getItem('user'))
     }
-
 }
 
 export default new Utils()

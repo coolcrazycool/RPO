@@ -88,55 +88,55 @@ class ArtistComponent extends Component {
         return (
             <>
                 {this.state.alertShow && <Alert variant={'danger'}>{this.state.alertMessage}</Alert>}
-            <div className="m-4">
-                <div className="row my-2 mr-0">
-                    <h3>Художник</h3>
-                    <button
-                        className="btn btn-outline-secondary ml-auto"
-                        onClick={() => this.props.history.goBack()}><FontAwesomeIcon icon={faChevronLeft}/>{' '}Назад
-                    </button>
+                <div className="m-4">
+                    <div className="row my-2 mr-0">
+                        <h3>Художник</h3>
+                        <button
+                            className="btn btn-outline-secondary ml-auto"
+                            onClick={() => this.props.history.goBack()}><FontAwesomeIcon icon={faChevronLeft}/>{' '}Назад
+                        </button>
+                    </div>
+                    <Form onSubmit={this.onSubmit}>
+                        <Form.Group>
+                            <Form.Label>Имя</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Введите имя художника"
+                                onChange={this.handleChange}
+                                value={this.state.name}
+                                name="name"
+                                autoComplete="off"
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Век</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Введите век"
+                                onChange={this.handleChange}
+                                value={this.state.century}
+                                name="century"
+                                autoComplete="off"
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Страна</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Введите страну художника"
+                                onChange={this.handleChange}
+                                value={this.state.country}
+                                name="country"
+                                autoComplete="off"
+                            />
+                        </Form.Group>
+                        <button
+                            className="btn btn-outline-secondary"
+                            type="submit"><FontAwesomeIcon icon={faSave}/>{" "}-Сохранить
+                        </button>
+                    </Form>
                 </div>
-                <Form onSubmit={this.onSubmit}>
-                    <Form.Group>
-                        <Form.Label>Имя</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Введите имя художника"
-                            onChange={this.handleChange}
-                            value={this.state.name}
-                            name="name"
-                            autoComplete="off"
-                        />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Век</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Введите век"
-                            onChange={this.handleChange}
-                            value={this.state.century}
-                            name="century"
-                            autoComplete="off"
-                        />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Страна</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Введите страну художника"
-                            onChange={this.handleChange}
-                            value={this.state.country}
-                            name="country"
-                            autoComplete="off"
-                        />
-                    </Form.Group>
-                    <button
-                        className="btn btn-outline-secondary"
-                        type="submit"><FontAwesomeIcon icon={faSave}/>{" "}-Сохранить
-                    </button>
-                </Form>
-            </div>
-                </>
+            </>
         )
     }
 

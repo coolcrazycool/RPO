@@ -1,21 +1,20 @@
-import React, { Component } from 'react';
-import {connect} from "react-redux"
-import {Form} from "react-bootstrap"
+import React, {Component} from "react";
 import BackendService from "../services/BackendService";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faChevronLeft, faSave} from "@fortawesome/free-solid-svg-icons";
+import{faChevronLeft, faSave} from "@fortawesome/free-solid-svg-icons";
 import {alertActions} from "../utils/Rdx";
-import Alert from "react-bootstrap/Alert";
+import{connect} from "react-redux";
+import {Form} from "react-bootstrap";
+
 class MuseumComponent extends Component {
+
     constructor(props) {
-        super(props)
+        super(props);
+
         this.state = {
             id: this.props.match.params.id,
             name: '',
-            location:'',
             hidden: false,
-            alertShow: false,
-            alertMessage: '',
         }
 
         this.onSubmit = this.onSubmit.bind(this)
@@ -26,69 +25,52 @@ class MuseumComponent extends Component {
         this.setState({[target.name]: target.value});
     };
 
-    onSubmit(event) {
-        console.log(event, 'event');
+    onSubmit(event){
         event.preventDefault();
         event.stopPropagation();
-        let err = '';
-        if (!this.state.name) {
-            err += "Название музея должно быть указано"
+        let err = null;
+        if (!this.state.name){
+            err = "Название музея должно быть указано"
         }
-        if (!this.state.location) {
-            err += " Локация музея должна быть указана"
-        }
-        if (err) {
+        if (err){
             this.props.dispatch(alertActions.error(err))
-            this.setState({alertShow: true, alertMessage: err});
-            return ;
         }
-        let museum = {id: this.state.id, name: this.state.name, location: this.state.location};
-        if (parseInt(museum.id) === -1) {
+        let museum = {id: this.state.id, name: this.state.name}
+        if (parseInt(museum.id)===-1) {
             BackendService.createMuseum(museum)
-                .then((res) => {
-                    if (res.data.error) {
-                        throw new Error(res.data.error);
-                    }
-                    this.props.history.push('/museums')
-                })
-                .catch((e) => {
-                    this.props.dispatch(alertActions.error(e));
-                    this.setState({alertShow: true, alertMessage: 'Такой музей уже есть'});
-                })
-        } else {
+                .then(()=>this.props.history.push('/museums'))
+                .catch(()=>{})
+        }
+        else {
             BackendService.updateMuseum(museum)
-                .then(() => this.props.history.push('/museums'))
-                .catch(() => {
-                })
+                .then(()=>this.props.history.push('/museums'))
+                .catch(()=>{})
         }
     }
 
     componentDidMount() {
-        if(parseInt(this.state.id) !== -1) {
+        if (parseInt(this.state.id)!==-1){
             BackendService.retrieveMuseum(this.state.id)
-                .then((resp) => {
+                .then((resp)=>{
                     this.setState({
                         name: resp.data.name,
-                        location: resp.data.location,
-                    });
+                    })
                 })
-                .catch(() => this.setState({hidden: true}));
+                .catch(()=>this.setState({hidden: true}))
         }
     }
 
-    render() {
+    render(){
         if (this.state.hidden)
             return null;
         return (
-            <>
-                {this.state.alertShow && <Alert variant={'danger'}>{this.state.alertMessage}</Alert>}
             <div className="m-4">
                 <div className="row my-2 mr-0">
-                    <h3>Страна</h3>
+                    <h3>Музеи</h3>
                     <button
                         className="btn btn-outline-secondary ml-auto"
-                        onClick={() => this.props.history.goBack()}><FontAwesomeIcon icon={faChevronLeft}/>{' '}Назад
-                    </button>
+                        onClick={()=>this.props.history.push('/museums')}><FontAwesomeIcon
+                        icon={faChevronLeft}/>{' '}Назад</button>
                 </div>
                 <Form onSubmit={this.onSubmit}>
                     <Form.Group>
@@ -99,30 +81,16 @@ class MuseumComponent extends Component {
                             onChange={this.handleChange}
                             value={this.state.name}
                             name="name"
-                            autoComplete="off"
-                        />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Локация</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Введите локацию музея"
-                            onChange={this.handleChange}
-                            value={this.state.location}
-                            name="location"
-                            autoComplete="off"
-                        />
+                            autoComplete="off"/>
                     </Form.Group>
                     <button
                         className="btn btn-outline-secondary"
-                        type="submit"><FontAwesomeIcon icon={faSave}/>{" "}-Сохранить
-                    </button>
+                        type="submit"><FontAwesomeIcon
+                        icon={faSave}/>{' '}Сохранить</button>
                 </Form>
             </div>
-                </>
         )
     }
-
 }
 
 export default connect()(MuseumComponent);

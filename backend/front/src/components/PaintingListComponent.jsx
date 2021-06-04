@@ -90,13 +90,13 @@ class PaintingListComponent extends React.Component {
             .then(async (resp) => {
                 const data = [];
                 for (let elem of resp.data.content) {
-                       const info = await BackendService.retrieveMuseumsAndArtist(elem.artistid, elem.museumid);
+                    const info = await BackendService.retrieveMuseumsAndArtist(elem.artistid, elem.museumid);
                     data.push({...info, name: elem.name, id: elem.id});
                 }
                 console.log(resp, 'REPS')
                 this.setState({
-                        paintings: data, totalCount: resp.data.totalElements,
-                        page:cp, hidden: false });
+                    paintings: data, totalCount: resp.data.totalElements,
+                    page:cp, hidden: false });
 
             })
             .catch(() => {
